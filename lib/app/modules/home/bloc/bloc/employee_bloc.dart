@@ -36,5 +36,11 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
         ),
       );
     });
+
+    on<_SearchEmployee>((event, emit) {
+      final List<Employee> employeeList =
+          employeeRepo.searchEmployee(query: event.query);
+      emit(state.copyWith(employeeList: employeeList, isLoading: false));
+    });
   }
 }

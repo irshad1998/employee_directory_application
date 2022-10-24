@@ -19,32 +19,38 @@ mixin _$EmployeeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getEmployeeList,
+    required TResult Function(String query) searchEmployee,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getEmployeeList,
+    TResult? Function(String query)? searchEmployee,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getEmployeeList,
+    TResult Function(String query)? searchEmployee,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetEmployeeList value) getEmployeeList,
+    required TResult Function(_SearchEmployee value) searchEmployee,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetEmployeeList value)? getEmployeeList,
+    TResult? Function(_SearchEmployee value)? searchEmployee,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetEmployeeList value)? getEmployeeList,
+    TResult Function(_SearchEmployee value)? searchEmployee,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$_GetEmployeeList implements _GetEmployeeList {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getEmployeeList,
+    required TResult Function(String query) searchEmployee,
   }) {
     return getEmployeeList();
   }
@@ -115,6 +122,7 @@ class _$_GetEmployeeList implements _GetEmployeeList {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getEmployeeList,
+    TResult? Function(String query)? searchEmployee,
   }) {
     return getEmployeeList?.call();
   }
@@ -123,6 +131,7 @@ class _$_GetEmployeeList implements _GetEmployeeList {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getEmployeeList,
+    TResult Function(String query)? searchEmployee,
     required TResult orElse(),
   }) {
     if (getEmployeeList != null) {
@@ -135,6 +144,7 @@ class _$_GetEmployeeList implements _GetEmployeeList {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetEmployeeList value) getEmployeeList,
+    required TResult Function(_SearchEmployee value) searchEmployee,
   }) {
     return getEmployeeList(this);
   }
@@ -143,6 +153,7 @@ class _$_GetEmployeeList implements _GetEmployeeList {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetEmployeeList value)? getEmployeeList,
+    TResult? Function(_SearchEmployee value)? searchEmployee,
   }) {
     return getEmployeeList?.call(this);
   }
@@ -151,6 +162,7 @@ class _$_GetEmployeeList implements _GetEmployeeList {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetEmployeeList value)? getEmployeeList,
+    TResult Function(_SearchEmployee value)? searchEmployee,
     required TResult orElse(),
   }) {
     if (getEmployeeList != null) {
@@ -162,6 +174,140 @@ class _$_GetEmployeeList implements _GetEmployeeList {
 
 abstract class _GetEmployeeList implements EmployeeEvent {
   const factory _GetEmployeeList() = _$_GetEmployeeList;
+}
+
+/// @nodoc
+abstract class _$$_SearchEmployeeCopyWith<$Res> {
+  factory _$$_SearchEmployeeCopyWith(
+          _$_SearchEmployee value, $Res Function(_$_SearchEmployee) then) =
+      __$$_SearchEmployeeCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$_SearchEmployeeCopyWithImpl<$Res>
+    extends _$EmployeeEventCopyWithImpl<$Res, _$_SearchEmployee>
+    implements _$$_SearchEmployeeCopyWith<$Res> {
+  __$$_SearchEmployeeCopyWithImpl(
+      _$_SearchEmployee _value, $Res Function(_$_SearchEmployee) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$_SearchEmployee(
+      query: null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SearchEmployee implements _SearchEmployee {
+  const _$_SearchEmployee({required this.query});
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'EmployeeEvent.searchEmployee(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_SearchEmployee &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_SearchEmployeeCopyWith<_$_SearchEmployee> get copyWith =>
+      __$$_SearchEmployeeCopyWithImpl<_$_SearchEmployee>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getEmployeeList,
+    required TResult Function(String query) searchEmployee,
+  }) {
+    return searchEmployee(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getEmployeeList,
+    TResult? Function(String query)? searchEmployee,
+  }) {
+    return searchEmployee?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getEmployeeList,
+    TResult Function(String query)? searchEmployee,
+    required TResult orElse(),
+  }) {
+    if (searchEmployee != null) {
+      return searchEmployee(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetEmployeeList value) getEmployeeList,
+    required TResult Function(_SearchEmployee value) searchEmployee,
+  }) {
+    return searchEmployee(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetEmployeeList value)? getEmployeeList,
+    TResult? Function(_SearchEmployee value)? searchEmployee,
+  }) {
+    return searchEmployee?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetEmployeeList value)? getEmployeeList,
+    TResult Function(_SearchEmployee value)? searchEmployee,
+    required TResult orElse(),
+  }) {
+    if (searchEmployee != null) {
+      return searchEmployee(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SearchEmployee implements EmployeeEvent {
+  const factory _SearchEmployee({required final String query}) =
+      _$_SearchEmployee;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$_SearchEmployeeCopyWith<_$_SearchEmployee> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:employee_directory_application/app/modules/home/models/employee.dart';
@@ -11,7 +12,9 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IEmployeeRepo)
 class EmployeeRepository extends IEmployeeRepo {
+  Timer? _debounceTimer;
   final employeeDataList = <Employee>[];
+  final searchResult = <Employee>[];
   @override
   Future<Either<ApiFailure, List<Employee>>> getEmployeeList() async {
     Either<ApiFailure, List<Employee>> _returnValue = Right([]);
@@ -25,6 +28,7 @@ class EmployeeRepository extends IEmployeeRepo {
             for (int i = 0; i < dataList.length; i++) {
               var employee = Employee.fromJson(dataList[i]);
               _temporaryEmployeeList.add(employee);
+              Storage.instance.addEmployee(employee.id!, employee);
             }
             _returnValue = Right(_temporaryEmployeeList);
             employeeDataList.addAll(_temporaryEmployeeList);
@@ -37,10 +41,34 @@ class EmployeeRepository extends IEmployeeRepo {
       } else {
         List<Employee> existingEmployeeList =
             await Storage.instance.getEmployees();
+        employeeDataList.clear();
+        employeeDataList.addAll(existingEmployeeList);
+        _returnValue = Right(existingEmployeeList);
       }
     });
 
     return _returnValue;
+  }
+
+  @override
+  List<Employee> searchEmployee({required String query}) {
+    final searchRes = <Employee>[];
+    if (query != '') {
+      searchRes.clear();
+      final resultList = employeeDataList
+          .where((element) => ((element.name ?? '')
+                  .toLowerCase()
+                  .startsWith(query.toLowerCase()) ||
+              (element.email ?? '')
+                  .toLowerCase()
+                  .startsWith(query.toLowerCase())))
+          .toList();
+      searchRes.addAll(resultList);
+    } else {
+      searchRes.clear();
+      searchRes.addAll(employeeDataList);
+    }
+    return searchRes;
   }
 
   Future<bool> checkEmployeeListIsEmpty() async {

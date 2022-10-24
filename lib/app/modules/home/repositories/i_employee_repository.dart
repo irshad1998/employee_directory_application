@@ -4,4 +4,5 @@ import 'package:employee_directory_application/app/modules/home/models/employee.
 
 abstract class IEmployeeRepo {
   Future<Either<ApiFailure, List<Employee>>> getEmployeeList();
+  List<Employee> searchEmployee({required String query});
 }

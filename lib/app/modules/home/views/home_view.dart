@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<EmployeeBloc>().add(const EmployeeEvent.getEmployeeList());
+    // context.read<EmployeeBloc>().add(const EmployeeEvent.getEmployeeList());
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -20,11 +20,11 @@ class HomeView extends StatelessWidget {
         elevation: 3,
         title: const Text(AppConstants.appName),
       ),
-      body: buildHomeBody(width, height),
+      body: buildHomeBody(width, height, context),
     );
   }
 
-  Widget buildHomeBody(double width, height) {
+  Widget buildHomeBody(double width, height, BuildContext context) {
     return SizedBox(
       width: width,
       height: height - kToolbarHeight,
@@ -41,6 +41,11 @@ class HomeView extends StatelessWidget {
                   horizontal: 6,
                 ),
                 child: TextField(
+                  onChanged: (v) {
+                    context
+                        .read<EmployeeBloc>()
+                        .add(EmployeeEvent.searchEmployee(query: v));
+                  },
                   cursorColor: AppColors.appColorPrimary,
                   cursorWidth: 1,
                   style: const TextStyle(
