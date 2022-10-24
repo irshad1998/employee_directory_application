@@ -23,19 +23,22 @@ class EmployeeRepository extends IEmployeeRepo {
           List<Employee> _temporaryEmployeeList = [];
           var result = await NetworkClient.request(Endpoints.getEmployeeList);
           if (result.code == 200 || result.code == 201) {
+            employeeDataList.clear();
+            _temporaryEmployeeList.clear();
             var dataList = jsonDecode(result.data) as List<dynamic>;
             for (int i = 0; i < dataList.length; i++) {
               var employee = Employee.fromJson(dataList[i]);
               _temporaryEmployeeList.add(employee);
               Storage.instance.addEmployee(employee.id!, employee);
             }
+
             _returnValue = Right(_temporaryEmployeeList);
             employeeDataList.addAll(_temporaryEmployeeList);
           } else {
-            _returnValue = Left(ApiFailure.serverSideFailure());
+            _returnValue = const Left(ApiFailure.serverSideFailure());
           }
         } catch (e) {
-          _returnValue = Left(ApiFailure.clientSideFailure());
+          _returnValue = const Left(ApiFailure.clientSideFailure());
         }
       } else {
         await Storage.instance.getEmployees().then((value) {
@@ -43,7 +46,7 @@ class EmployeeRepository extends IEmployeeRepo {
           employeeDataList.addAll(value);
           _returnValue = Right(value);
         }, onError: (_) {
-          _returnValue = Left(ApiFailure.clientSideFailure());
+          _returnValue = const Left(ApiFailure.clientSideFailure());
         });
       }
     });
