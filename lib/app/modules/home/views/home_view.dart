@@ -1,11 +1,121 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:employee_directory_application/app/data/app_colors.dart';
+import 'package:employee_directory_application/app/data/app_constants.dart';
+import 'package:employee_directory_application/app/data/strings.dart';
+import 'package:employee_directory_application/app/network/endpoints.dart';
+
+import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 3,
+        title: const Text(AppConstants.appName),
+      ),
+      body: buildHomeBody(width, height),
+    );
+  }
+
+  Widget buildHomeBody(double width, height) {
+    return SizedBox(
+      width: width,
+      height: height - kToolbarHeight,
+      child: SingleChildScrollView(
+        physics: const NeverScrollableScrollPhysics(),
+        child: Column(
+          children: [
+            const SizedBox(height: 6),
+            SizedBox(
+              width: width,
+              height: height * 0.068,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 6,
+                ),
+                child: TextField(
+                  cursorColor: AppColors.appColorPrimary,
+                  cursorWidth: 1,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 15,
+                  ),
+                  decoration: InputDecoration(
+                    hintText: Strings.searchHintText,
+                    hintStyle: const TextStyle(fontWeight: FontWeight.w300, fontSize: 15),
+                    contentPadding: const EdgeInsets.only(bottom: 4, left: 6, right: 4),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(
+                        width: 0.5,
+                        color: AppColors.textFeildBorderColor,
+                      ),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(
+                        width: 0.5,
+                        color: AppColors.textFeildBorderColor,
+                      ),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(
+                        width: 0.7,
+                        color: AppColors.appColorPrimary,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: width,
+              height: height - (kToolbarHeight + (height * 0.11)),
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemBuilder: (ctx, index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 2,
+                      horizontal: 6,
+                    ),
+                    child: Material(
+                      elevation: 5,
+                      shadowColor: AppColors.employeeListShadowColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(4),
+                      ),
+                      child: SizedBox(
+                        height: height > 595 ? height * 0.1 : height * 0.14,
+                        child: Center(
+                          child: ListTile(
+                            onTap: () {},
+                            leading: CircleAvatar(
+                              radius: 25,
+                              backgroundColor: Colors.grey.withOpacity(0.3),
+                              backgroundImage: const NetworkImage(
+                                Endpoints.profilePlaceHolderUrl,
+                              ),
+                            ),
+                            title: const Text('Employee Name'),
+                            subtitle: const Text('Company'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: 5,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
