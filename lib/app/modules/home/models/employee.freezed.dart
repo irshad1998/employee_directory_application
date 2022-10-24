@@ -32,7 +32,7 @@ mixin _$Employee {
   @JsonKey(name: 'email')
   @HiveField(4)
   String? get email => throw _privateConstructorUsedError;
-  @JsonKey(name: 'profileImage')
+  @JsonKey(name: 'profile_image')
   @HiveField(5)
   String? get profileImage => throw _privateConstructorUsedError;
   @JsonKey(name: 'address')
@@ -64,7 +64,7 @@ abstract class $EmployeeCopyWith<$Res> {
       @JsonKey(name: 'name') @HiveField(2) String? name,
       @JsonKey(name: 'username') @HiveField(3) String? username,
       @JsonKey(name: 'email') @HiveField(4) String? email,
-      @JsonKey(name: 'profileImage') @HiveField(5) String? profileImage,
+      @JsonKey(name: 'profile_image') @HiveField(5) String? profileImage,
       @JsonKey(name: 'address') @HiveField(6) Address? address,
       @JsonKey(name: 'phone') @HiveField(7) dynamic phone,
       @JsonKey(name: 'website') @HiveField(8) String? website,
@@ -174,7 +174,7 @@ abstract class _$$_EmployeeCopyWith<$Res> implements $EmployeeCopyWith<$Res> {
       @JsonKey(name: 'name') @HiveField(2) String? name,
       @JsonKey(name: 'username') @HiveField(3) String? username,
       @JsonKey(name: 'email') @HiveField(4) String? email,
-      @JsonKey(name: 'profileImage') @HiveField(5) String? profileImage,
+      @JsonKey(name: 'profile_image') @HiveField(5) String? profileImage,
       @JsonKey(name: 'address') @HiveField(6) Address? address,
       @JsonKey(name: 'phone') @HiveField(7) dynamic phone,
       @JsonKey(name: 'website') @HiveField(8) String? website,
@@ -257,7 +257,7 @@ class _$_Employee extends _Employee {
       @JsonKey(name: 'name') @HiveField(2) this.name,
       @JsonKey(name: 'username') @HiveField(3) this.username,
       @JsonKey(name: 'email') @HiveField(4) this.email,
-      @JsonKey(name: 'profileImage') @HiveField(5) this.profileImage,
+      @JsonKey(name: 'profile_image') @HiveField(5) this.profileImage,
       @JsonKey(name: 'address') @HiveField(6) this.address,
       @JsonKey(name: 'phone') @HiveField(7) this.phone,
       @JsonKey(name: 'website') @HiveField(8) this.website,
@@ -284,7 +284,7 @@ class _$_Employee extends _Employee {
   @HiveField(4)
   final String? email;
   @override
-  @JsonKey(name: 'profileImage')
+  @JsonKey(name: 'profile_image')
   @HiveField(5)
   final String? profileImage;
   @override
@@ -369,7 +369,7 @@ abstract class _Employee extends Employee {
       @JsonKey(name: 'email')
       @HiveField(4)
           final String? email,
-      @JsonKey(name: 'profileImage')
+      @JsonKey(name: 'profile_image')
       @HiveField(5)
           final String? profileImage,
       @JsonKey(name: 'address')
@@ -405,7 +405,7 @@ abstract class _Employee extends Employee {
   @HiveField(4)
   String? get email;
   @override
-  @JsonKey(name: 'profileImage')
+  @JsonKey(name: 'profile_image')
   @HiveField(5)
   String? get profileImage;
   @override

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:employee_directory_application/app/modules/home/models/employee.dart';
 import 'package:employee_directory_application/app/core/failures/api_failure.dart';
 import 'package:dartz/dartz.dart';
@@ -16,13 +18,21 @@ class EmployeeRepository extends IEmployeeRepo {
     await checkEmployeeListIsEmpty().then((value) async {
       if (value) {
         try {
+          List<Employee> _temporaryEmployeeList = [];
           var result = await NetworkClient.request(Endpoints.getEmployeeList);
           if (result.code == 200 || result.code == 201) {
-            print(result.code);
-            print(result.data);
+            var dataList = jsonDecode(result.data) as List<dynamic>;
+            for (int i = 0; i < dataList.length; i++) {
+              var employee = Employee.fromJson(dataList[i]);
+              _temporaryEmployeeList.add(employee);
+            }
+            _returnValue = Right(_temporaryEmployeeList);
+            employeeDataList.addAll(_temporaryEmployeeList);
+          } else {
+            _returnValue = Left(ApiFailure.serverSideFailure());
           }
         } catch (e) {
-          _returnValue = Left(ApiFailure.clinentSideFailure());
+          _returnValue = Left(ApiFailure.clientSideFailure());
         }
       } else {
         List<Employee> existingEmployeeList =

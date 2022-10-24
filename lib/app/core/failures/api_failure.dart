@@ -4,6 +4,6 @@ part 'api_failure.freezed.dart';
 
 @freezed
 class ApiFailure with _$ApiFailure {
-  const factory ApiFailure.clinentSideFailure() = _ClinentSideFailure;
+  const factory ApiFailure.clientSideFailure() = _ClinentSideFailure;
   const factory ApiFailure.serverSideFailure() = _ServerSideFailure;
 }

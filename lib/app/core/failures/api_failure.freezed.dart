@@ -18,38 +18,38 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ApiFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() clinentSideFailure,
+    required TResult Function() clientSideFailure,
     required TResult Function() serverSideFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? clinentSideFailure,
+    TResult? Function()? clientSideFailure,
     TResult? Function()? serverSideFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? clinentSideFailure,
+    TResult Function()? clientSideFailure,
     TResult Function()? serverSideFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ClinentSideFailure value) clinentSideFailure,
+    required TResult Function(_ClinentSideFailure value) clientSideFailure,
     required TResult Function(_ServerSideFailure value) serverSideFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ClinentSideFailure value)? clinentSideFailure,
+    TResult? Function(_ClinentSideFailure value)? clientSideFailure,
     TResult? Function(_ServerSideFailure value)? serverSideFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ClinentSideFailure value)? clinentSideFailure,
+    TResult Function(_ClinentSideFailure value)? clientSideFailure,
     TResult Function(_ServerSideFailure value)? serverSideFailure,
     required TResult orElse(),
   }) =>
@@ -97,7 +97,7 @@ class _$_ClinentSideFailure implements _ClinentSideFailure {
 
   @override
   String toString() {
-    return 'ApiFailure.clinentSideFailure()';
+    return 'ApiFailure.clientSideFailure()';
   }
 
   @override
@@ -112,30 +112,30 @@ class _$_ClinentSideFailure implements _ClinentSideFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() clinentSideFailure,
+    required TResult Function() clientSideFailure,
     required TResult Function() serverSideFailure,
   }) {
-    return clinentSideFailure();
+    return clientSideFailure();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? clinentSideFailure,
+    TResult? Function()? clientSideFailure,
     TResult? Function()? serverSideFailure,
   }) {
-    return clinentSideFailure?.call();
+    return clientSideFailure?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? clinentSideFailure,
+    TResult Function()? clientSideFailure,
     TResult Function()? serverSideFailure,
     required TResult orElse(),
   }) {
-    if (clinentSideFailure != null) {
-      return clinentSideFailure();
+    if (clientSideFailure != null) {
+      return clientSideFailure();
     }
     return orElse();
   }
@@ -143,30 +143,30 @@ class _$_ClinentSideFailure implements _ClinentSideFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ClinentSideFailure value) clinentSideFailure,
+    required TResult Function(_ClinentSideFailure value) clientSideFailure,
     required TResult Function(_ServerSideFailure value) serverSideFailure,
   }) {
-    return clinentSideFailure(this);
+    return clientSideFailure(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ClinentSideFailure value)? clinentSideFailure,
+    TResult? Function(_ClinentSideFailure value)? clientSideFailure,
     TResult? Function(_ServerSideFailure value)? serverSideFailure,
   }) {
-    return clinentSideFailure?.call(this);
+    return clientSideFailure?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ClinentSideFailure value)? clinentSideFailure,
+    TResult Function(_ClinentSideFailure value)? clientSideFailure,
     TResult Function(_ServerSideFailure value)? serverSideFailure,
     required TResult orElse(),
   }) {
-    if (clinentSideFailure != null) {
-      return clinentSideFailure(this);
+    if (clientSideFailure != null) {
+      return clientSideFailure(this);
     }
     return orElse();
   }
@@ -214,7 +214,7 @@ class _$_ServerSideFailure implements _ServerSideFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() clinentSideFailure,
+    required TResult Function() clientSideFailure,
     required TResult Function() serverSideFailure,
   }) {
     return serverSideFailure();
@@ -223,7 +223,7 @@ class _$_ServerSideFailure implements _ServerSideFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? clinentSideFailure,
+    TResult? Function()? clientSideFailure,
     TResult? Function()? serverSideFailure,
   }) {
     return serverSideFailure?.call();
@@ -232,7 +232,7 @@ class _$_ServerSideFailure implements _ServerSideFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? clinentSideFailure,
+    TResult Function()? clientSideFailure,
     TResult Function()? serverSideFailure,
     required TResult orElse(),
   }) {
@@ -245,7 +245,7 @@ class _$_ServerSideFailure implements _ServerSideFailure {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_ClinentSideFailure value) clinentSideFailure,
+    required TResult Function(_ClinentSideFailure value) clientSideFailure,
     required TResult Function(_ServerSideFailure value) serverSideFailure,
   }) {
     return serverSideFailure(this);
@@ -254,7 +254,7 @@ class _$_ServerSideFailure implements _ServerSideFailure {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_ClinentSideFailure value)? clinentSideFailure,
+    TResult? Function(_ClinentSideFailure value)? clientSideFailure,
     TResult? Function(_ServerSideFailure value)? serverSideFailure,
   }) {
     return serverSideFailure?.call(this);
@@ -263,7 +263,7 @@ class _$_ServerSideFailure implements _ServerSideFailure {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ClinentSideFailure value)? clinentSideFailure,
+    TResult Function(_ClinentSideFailure value)? clientSideFailure,
     TResult Function(_ServerSideFailure value)? serverSideFailure,
     required TResult orElse(),
   }) {

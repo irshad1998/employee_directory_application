@@ -196,7 +196,7 @@ _$_Employee _$$_EmployeeFromJson(Map<String, dynamic> json) => _$_Employee(
       name: json['name'] as String?,
       username: json['username'] as String?,
       email: json['email'] as String?,
-      profileImage: json['profileImage'] as String?,
+      profileImage: json['profile_image'] as String?,
       address: json['address'] == null
           ? null
           : Address.fromJson(json['address'] as Map<String, dynamic>),
@@ -213,7 +213,7 @@ Map<String, dynamic> _$$_EmployeeToJson(_$_Employee instance) =>
       'name': instance.name,
       'username': instance.username,
       'email': instance.email,
-      'profileImage': instance.profileImage,
+      'profile_image': instance.profileImage,
       'address': instance.address,
       'phone': instance.phone,
       'website': instance.website,

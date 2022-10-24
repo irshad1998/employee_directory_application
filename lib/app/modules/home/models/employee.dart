@@ -13,7 +13,7 @@ abstract class Employee extends HiveObject with _$Employee {
     @JsonKey(name: 'name') @HiveField(2) String? name,
     @JsonKey(name: 'username') @HiveField(3) String? username,
     @JsonKey(name: 'email') @HiveField(4) String? email,
-    @JsonKey(name: 'profileImage') @HiveField(5) String? profileImage,
+    @JsonKey(name: 'profile_image') @HiveField(5) String? profileImage,
     @JsonKey(name: 'address') @HiveField(6) Address? address,
     @JsonKey(name: 'phone') @HiveField(7) dynamic phone,
     @JsonKey(name: 'website') @HiveField(8) String? website,

@@ -81,41 +81,47 @@ class HomeView extends StatelessWidget {
             SizedBox(
               width: width,
               height: height - (kToolbarHeight + (height * 0.11)),
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemBuilder: (ctx, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 2,
-                      horizontal: 6,
-                    ),
-                    child: Material(
-                      elevation: 5,
-                      shadowColor: AppColors.employeeListShadowColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
-                      ),
-                      child: SizedBox(
-                        height: height > 595 ? height * 0.1 : height * 0.14,
-                        child: Center(
-                          child: ListTile(
-                            onTap: () {},
-                            leading: CircleAvatar(
-                              radius: 25,
-                              backgroundColor: Colors.grey.withOpacity(0.3),
-                              backgroundImage: const NetworkImage(
-                                Endpoints.profilePlaceHolderUrl,
+              child: BlocBuilder<EmployeeBloc, EmployeeState>(
+                builder: (context, state) {
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (ctx, index) {
+                      var employee = state.employeeList[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 2,
+                          horizontal: 6,
+                        ),
+                        child: Material(
+                          elevation: 5,
+                          shadowColor: AppColors.employeeListShadowColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: SizedBox(
+                            height: height > 595 ? height * 0.1 : height * 0.14,
+                            child: Center(
+                              child: ListTile(
+                                onTap: () {},
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundColor: Colors.grey.withOpacity(0.3),
+                                  backgroundImage: NetworkImage(
+                                    employee.profileImage ??
+                                        Endpoints.profilePlaceHolderUrl,
+                                  ),
+                                ),
+                                title: Text(employee.name ?? '--'),
+                                subtitle: Text(employee.company?.name ?? '--'),
                               ),
                             ),
-                            title: const Text('Employee Name'),
-                            subtitle: const Text('Company'),
                           ),
                         ),
-                      ),
-                    ),
+                      );
+                    },
+                    itemCount: state.employeeList.length,
                   );
                 },
-                itemCount: 5,
               ),
             )
           ],
