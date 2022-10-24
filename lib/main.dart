@@ -1,14 +1,18 @@
+import 'package:employee_directory_application/app/core/di/injectable.dart';
 import 'package:employee_directory_application/app/data/app_colors.dart';
 import 'package:employee_directory_application/app/data/app_constants.dart';
 import 'package:employee_directory_application/app/modules/home/views/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'app/modules/home/bloc/bloc/employee_bloc.dart';
 import 'app/modules/home/models/employee.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
   await Hive.initFlutter();
   registerHiveAdapters();
   await Hive.openBox<Employee>(AppConstants.employeeDb);
@@ -20,18 +24,21 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Employee Directory Application',
-      builder: EasyLoading.init(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.light,
-        primaryColor: AppColors.appColorPrimary,
-        splashColor: AppColors.appColorPrimary.withOpacity(0.15),
-        scaffoldBackgroundColor: Colors.white,
+    return BlocProvider(
+      create: (context) => getIt<EmployeeBloc>(),
+      child: MaterialApp(
+        title: 'Employee Directory Application',
+        builder: EasyLoading.init(),
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: true,
+          brightness: Brightness.light,
+          primaryColor: AppColors.appColorPrimary,
+          splashColor: AppColors.appColorPrimary.withOpacity(0.15),
+          scaffoldBackgroundColor: Colors.white,
+        ),
+        home: const HomeView(),
       ),
-      home: const HomeView(),
     );
   }
 }

@@ -5,7 +5,9 @@ import 'package:employee_directory_application/app/modules/home/repositories/i_e
 import 'package:employee_directory_application/app/network/endpoints.dart';
 import 'package:employee_directory_application/app/network/http_client.dart';
 import 'package:employee_directory_application/app/utils/storage.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: IEmployeeRepo)
 class EmployeeRepository extends IEmployeeRepo {
   final employeeDataList = <Employee>[];
   @override
@@ -17,6 +19,7 @@ class EmployeeRepository extends IEmployeeRepo {
           var result = await NetworkClient.request(Endpoints.getEmployeeList);
           if (result.code == 200 || result.code == 201) {
             print(result.code);
+            print(result.data);
           }
         } catch (e) {
           _returnValue = Left(ApiFailure.clinentSideFailure());

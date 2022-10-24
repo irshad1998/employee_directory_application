@@ -1,15 +1,18 @@
 import 'package:employee_directory_application/app/data/app_colors.dart';
 import 'package:employee_directory_application/app/data/app_constants.dart';
 import 'package:employee_directory_application/app/data/strings.dart';
+import 'package:employee_directory_application/app/modules/home/bloc/bloc/employee_bloc.dart';
 import 'package:employee_directory_application/app/network/endpoints.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    context.read<EmployeeBloc>().add(const EmployeeEvent.getEmployeeList());
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -46,8 +49,10 @@ class HomeView extends StatelessWidget {
                   ),
                   decoration: InputDecoration(
                     hintText: Strings.searchHintText,
-                    hintStyle: const TextStyle(fontWeight: FontWeight.w300, fontSize: 15),
-                    contentPadding: const EdgeInsets.only(bottom: 4, left: 6, right: 4),
+                    hintStyle: const TextStyle(
+                        fontWeight: FontWeight.w300, fontSize: 15),
+                    contentPadding:
+                        const EdgeInsets.only(bottom: 4, left: 6, right: 4),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
