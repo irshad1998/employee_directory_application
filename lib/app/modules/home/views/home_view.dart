@@ -1,7 +1,10 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:employee_directory_application/app/core/failures/api_failure.dart';
 import 'package:employee_directory_application/app/data/app_colors.dart';
 import 'package:employee_directory_application/app/data/app_constants.dart';
 import 'package:employee_directory_application/app/data/strings.dart';
 import 'package:employee_directory_application/app/modules/home/bloc/bloc/employee_bloc.dart';
+import 'package:employee_directory_application/app/modules/home/widgets/error_widget.dart';
 import 'package:employee_directory_application/app/network/endpoints.dart';
 
 import 'package:flutter/material.dart';
@@ -12,7 +15,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // context.read<EmployeeBloc>().add(const EmployeeEvent.getEmployeeList());
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -88,44 +90,58 @@ class HomeView extends StatelessWidget {
               height: height - (kToolbarHeight + (height * 0.11)),
               child: BlocBuilder<EmployeeBloc, EmployeeState>(
                 builder: (context, state) {
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemBuilder: (ctx, index) {
-                      var employee = state.employeeList[index];
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 2,
-                          horizontal: 6,
-                        ),
-                        child: Material(
-                          elevation: 5,
-                          shadowColor: AppColors.employeeListShadowColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: SizedBox(
-                            height: height > 595 ? height * 0.1 : height * 0.14,
-                            child: Center(
-                              child: ListTile(
-                                onTap: () {},
-                                leading: CircleAvatar(
-                                  radius: 25,
-                                  backgroundColor: Colors.grey.withOpacity(0.3),
-                                  backgroundImage: NetworkImage(
-                                    employee.profileImage ??
-                                        Endpoints.profilePlaceHolderUrl,
+                  return state.employeeList.isNotEmpty
+                      ? ListView.builder(
+                          shrinkWrap: true,
+                          itemBuilder: (ctx, index) {
+                            var employee = state.employeeList[index];
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 2,
+                                horizontal: 6,
+                              ),
+                              child: Material(
+                                elevation: 5,
+                                shadowColor: AppColors.employeeListShadowColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: SizedBox(
+                                  height: height > 595
+                                      ? height * 0.1
+                                      : height * 0.14,
+                                  child: Center(
+                                    child: ListTile(
+                                      onTap: () => Navigator.pushNamed(
+                                          context, '/employee_details',
+                                          arguments: employee),
+                                      leading: CircleAvatar(
+                                        radius: 25,
+                                        backgroundColor:
+                                            Colors.grey.withOpacity(0.3),
+                                        backgroundImage:
+                                            CachedNetworkImageProvider(
+                                          employee.profileImage ??
+                                              Endpoints.profilePlaceHolderUrl,
+                                        ),
+                                      ),
+                                      title: Text(employee.name ?? '--'),
+                                      subtitle:
+                                          Text(employee.company?.name ?? '--'),
+                                    ),
                                   ),
                                 ),
-                                title: Text(employee.name ?? '--'),
-                                subtitle: Text(employee.company?.name ?? '--'),
                               ),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                    itemCount: state.employeeList.length,
-                  );
+                            );
+                          },
+                          itemCount: state.employeeList.length,
+                        )
+                      : state.employeeApiFailureOption ==
+                              ApiFailure.clientSideFailure()
+                          ? NoDataWidget(
+                              errorText: Strings.somethingWentWrong,
+                            )
+                          : NoDataWidget(errorText: Strings.serverError);
                 },
               ),
             )

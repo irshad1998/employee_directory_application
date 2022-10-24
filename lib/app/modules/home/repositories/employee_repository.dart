@@ -12,7 +12,6 @@ import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IEmployeeRepo)
 class EmployeeRepository extends IEmployeeRepo {
-  Timer? _debounceTimer;
   final employeeDataList = <Employee>[];
   final searchResult = <Employee>[];
   @override
@@ -39,11 +38,13 @@ class EmployeeRepository extends IEmployeeRepo {
           _returnValue = Left(ApiFailure.clientSideFailure());
         }
       } else {
-        List<Employee> existingEmployeeList =
-            await Storage.instance.getEmployees();
-        employeeDataList.clear();
-        employeeDataList.addAll(existingEmployeeList);
-        _returnValue = Right(existingEmployeeList);
+        await Storage.instance.getEmployees().then((value) {
+          employeeDataList.clear();
+          employeeDataList.addAll(value);
+          _returnValue = Right(value);
+        }, onError: (_) {
+          _returnValue = Left(ApiFailure.clientSideFailure());
+        });
       }
     });
 

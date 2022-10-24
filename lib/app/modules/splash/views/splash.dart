@@ -1,9 +1,10 @@
 import 'dart:async';
 
+import 'package:employee_directory_application/app/data/app_colors.dart';
+import 'package:employee_directory_application/app/data/app_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../../home/bloc/bloc/employee_bloc.dart';
 
@@ -24,10 +25,28 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Center(
-        child: Text('Loading..'),
+        body: SizedBox(
+      width: width,
+      height: height,
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Text(
+            AppConstants.appName,
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w500),
+          ),
+          Positioned(
+            bottom: height * 0.01,
+            child: SpinKitFadingFour(
+              color: AppColors.appColorPrimary,
+              size: 16.0,
+            ),
+          )
+        ],
       ),
-    );
+    ));
   }
 }

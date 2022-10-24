@@ -11,4 +11,22 @@ class Strings {
   static const String responseTimeout = 'Response timed out!';
   static const String serviceException = 'Service exception!';
   static const String requestCancellation = 'request cancellation!';
+  static const String serverError = 'Internal server error';
+
+  static const String employeeDetails = 'Employee Details';
+  static const String username = 'Username';
+  static const String email = 'Email';
+  static const String phoneNumber = 'Phone Number';
+  static const String website = 'Website';
+  static const String company = 'Company';
+  static const String companyName = 'Name';
+  static const String companyCatchPhrase = 'Catch Phrase';
+  static const String companyBusiness = 'Business';
+  static const String address = 'Address';
+  static const String street = 'Street';
+  static const String suite = 'Suite';
+  static const String city = 'City';
+  static const String zip = 'ZIP Code;';
+  static const String lat = 'Latitude';
+  static const String long = 'Longitude';
 }
