@@ -17,11 +17,12 @@ class NetworkClient {
     if (dio == null) {
       dio = Dio(
         BaseOptions(
-            baseUrl: _getBaseUrl(),
-            responseType: ResponseType.plain,
-            connectTimeout: 60000,
-            receiveTimeout: 60000,
-            sendTimeout: 60000),
+          baseUrl: _getBaseUrl(),
+          responseType: ResponseType.plain,
+          connectTimeout: 60000,
+          receiveTimeout: 60000,
+          sendTimeout: 60000,
+        ),
       );
       _init();
     }
@@ -48,8 +49,7 @@ class NetworkClient {
         onError: (DioError error, handler) {
           _handleError(error);
           if (error.response != null && error.response?.data != null) {
-            error.response!.data =
-                Result(error.response!.data, error.response!.statusCode!);
+            error.response!.data = Result(error.response!.data, error.response!.statusCode!);
           } else {
             throw Exception(Strings.somethingWentWrong);
           }
@@ -59,11 +59,12 @@ class NetworkClient {
     );
     dio?.interceptors.add(
       PrettyDioLogger(
-          requestHeader: true,
-          requestBody: true,
-          responseBody: true,
-          responseHeader: false,
-          compact: false),
+        requestHeader: true,
+        requestBody: true,
+        responseBody: true,
+        responseHeader: false,
+        compact: false,
+      ),
     );
   }
 

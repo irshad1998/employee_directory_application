@@ -15,14 +15,18 @@ class EmployeeDetailsView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(Strings.employeeDetails),
+        title: const Text(Strings.employeeDetails),
         centerTitle: false,
       ),
       body: buildEmployeDetailsBody(width, height, employee),
     );
   }
 
-  Widget buildEmployeDetailsBody(double width, height, Employee employee) {
+  Widget buildEmployeDetailsBody(
+    double width,
+    double height,
+    Employee employee,
+  ) {
     return SizedBox(
       width: width,
       height: height - kToolbarHeight,
@@ -50,7 +54,8 @@ class EmployeeDetailsView extends StatelessWidget {
                         )
                       ],
                       borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(16)),
+                        topRight: Radius.circular(16),
+                      ),
                     ),
                   ),
                 ),
@@ -110,8 +115,7 @@ class EmployeeDetailsView extends StatelessWidget {
                         ),
                       ),
                       child: CachedNetworkImage(
-                        imageUrl: employee.profileImage ??
-                            Endpoints.profilePlaceHolderUrl,
+                        imageUrl: employee.profileImage ?? Endpoints.profilePlaceHolderUrl,
                       ),
                     ),
                   ),
@@ -155,8 +159,11 @@ class EmployeeDetailsView extends StatelessWidget {
                     buildDivider(width),
                     Visibility(
                       visible: employee.company != null,
-                      child: buildTitleBar(height, width,
-                          content: Strings.company),
+                      child: buildTitleBar(
+                        height,
+                        width,
+                        content: Strings.company,
+                      ),
                     ),
                     Visibility(
                       visible: employee.company != null,
@@ -173,8 +180,11 @@ class EmployeeDetailsView extends StatelessWidget {
                           child: Column(
                             children: [
                               const SizedBox(height: 6),
-                              buildTitleBar(height, width,
-                                  content: Strings.companyName),
+                              buildTitleBar(
+                                height,
+                                width,
+                                content: Strings.companyName,
+                              ),
                               buildUserDataWidget(
                                 height,
                                 width,
@@ -192,8 +202,11 @@ class EmployeeDetailsView extends StatelessWidget {
                                 text: employee.company?.catchPhrase ?? '--',
                                 fontSize: 16,
                               ),
-                              buildTitleBar(height, width,
-                                  content: Strings.companyBusiness),
+                              buildTitleBar(
+                                height,
+                                width,
+                                content: Strings.companyBusiness,
+                              ),
                               buildUserDataWidget(
                                 height,
                                 width,
@@ -224,8 +237,11 @@ class EmployeeDetailsView extends StatelessWidget {
                                 Expanded(
                                   child: Column(
                                     children: [
-                                      buildTitleBar(height, width,
-                                          content: Strings.street),
+                                      buildTitleBar(
+                                        height,
+                                        width,
+                                        content: Strings.street,
+                                      ),
                                       buildUserDataWidget(
                                         height,
                                         width,
@@ -238,8 +254,11 @@ class EmployeeDetailsView extends StatelessWidget {
                                 Expanded(
                                   child: Column(
                                     children: [
-                                      buildTitleBar(height, width,
-                                          content: Strings.suite),
+                                      buildTitleBar(
+                                        height,
+                                        width,
+                                        content: Strings.suite,
+                                      ),
                                       buildUserDataWidget(
                                         height,
                                         width,
@@ -256,8 +275,11 @@ class EmployeeDetailsView extends StatelessWidget {
                                 Expanded(
                                   child: Column(
                                     children: [
-                                      buildTitleBar(height, width,
-                                          content: Strings.city),
+                                      buildTitleBar(
+                                        height,
+                                        width,
+                                        content: Strings.city,
+                                      ),
                                       buildUserDataWidget(
                                         height,
                                         width,
@@ -270,8 +292,11 @@ class EmployeeDetailsView extends StatelessWidget {
                                 Expanded(
                                   child: Column(
                                     children: [
-                                      buildTitleBar(height, width,
-                                          content: Strings.zip),
+                                      buildTitleBar(
+                                        height,
+                                        width,
+                                        content: Strings.zip,
+                                      ),
                                       buildUserDataWidget(
                                         height,
                                         width,
@@ -288,13 +313,15 @@ class EmployeeDetailsView extends StatelessWidget {
                                 Expanded(
                                   child: Column(
                                     children: [
-                                      buildTitleBar(height, width,
-                                          content: Strings.lat),
+                                      buildTitleBar(
+                                        height,
+                                        width,
+                                        content: Strings.lat,
+                                      ),
                                       buildUserDataWidget(
                                         height,
                                         width,
-                                        text:
-                                            employee.address?.geo?.lat ?? '--',
+                                        text: employee.address?.geo?.lat ?? '--',
                                         fontSize: 16,
                                       ),
                                     ],
@@ -303,13 +330,15 @@ class EmployeeDetailsView extends StatelessWidget {
                                 Expanded(
                                   child: Column(
                                     children: [
-                                      buildTitleBar(height, width,
-                                          content: Strings.long),
+                                      buildTitleBar(
+                                        height,
+                                        width,
+                                        content: Strings.long,
+                                      ),
                                       buildUserDataWidget(
                                         height,
                                         width,
-                                        text:
-                                            employee.address?.geo?.lng ?? '--',
+                                        text: employee.address?.geo?.lng ?? '--',
                                         fontSize: 16,
                                       ),
                                     ],
@@ -333,8 +362,12 @@ class EmployeeDetailsView extends StatelessWidget {
     );
   }
 
-  Widget buildUserDataWidget(double height, width,
-      {required String text, double? fontSize}) {
+  Widget buildUserDataWidget(
+    double height,
+    double width, {
+    required String text,
+    double? fontSize,
+  }) {
     return ConstrainedBox(
       constraints: BoxConstraints(minHeight: height * 0.05, minWidth: width),
       child: SizedBox(
@@ -358,7 +391,7 @@ class EmployeeDetailsView extends StatelessWidget {
     );
   }
 
-  Widget buildTitleBar(double height, width, {required String content}) {
+  Widget buildTitleBar(double height, double width, {required String content}) {
     return ConstrainedBox(
       constraints: BoxConstraints(minHeight: height * 0.01, minWidth: width),
       child: SizedBox(
@@ -370,8 +403,7 @@ class EmployeeDetailsView extends StatelessWidget {
           ),
           child: Text(
             content,
-            style:
-                const TextStyle(fontSize: 14, color: AppColors.appColorPrimary),
+            style: const TextStyle(fontSize: 14, color: AppColors.appColorPrimary),
           ),
         ),
       ),

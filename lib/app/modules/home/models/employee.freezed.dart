@@ -50,14 +50,12 @@ mixin _$Employee {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EmployeeCopyWith<Employee> get copyWith =>
-      throw _privateConstructorUsedError;
+  $EmployeeCopyWith<Employee> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $EmployeeCopyWith<$Res> {
-  factory $EmployeeCopyWith(Employee value, $Res Function(Employee) then) =
-      _$EmployeeCopyWithImpl<$Res, Employee>;
+  factory $EmployeeCopyWith(Employee value, $Res Function(Employee) then) = _$EmployeeCopyWithImpl<$Res, Employee>;
   @useResult
   $Res call(
       {@JsonKey(name: 'id') @HiveField(0) int? id,
@@ -75,8 +73,7 @@ abstract class $EmployeeCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmployeeCopyWithImpl<$Res, $Val extends Employee>
-    implements $EmployeeCopyWith<$Res> {
+class _$EmployeeCopyWithImpl<$Res, $Val extends Employee> implements $EmployeeCopyWith<$Res> {
   _$EmployeeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -164,9 +161,7 @@ class _$EmployeeCopyWithImpl<$Res, $Val extends Employee>
 
 /// @nodoc
 abstract class _$$_EmployeeCopyWith<$Res> implements $EmployeeCopyWith<$Res> {
-  factory _$$_EmployeeCopyWith(
-          _$_Employee value, $Res Function(_$_Employee) then) =
-      __$$_EmployeeCopyWithImpl<$Res>;
+  factory _$$_EmployeeCopyWith(_$_Employee value, $Res Function(_$_Employee) then) = __$$_EmployeeCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -187,12 +182,9 @@ abstract class _$$_EmployeeCopyWith<$Res> implements $EmployeeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_EmployeeCopyWithImpl<$Res>
-    extends _$EmployeeCopyWithImpl<$Res, _$_Employee>
+class __$$_EmployeeCopyWithImpl<$Res> extends _$EmployeeCopyWithImpl<$Res, _$_Employee>
     implements _$$_EmployeeCopyWith<$Res> {
-  __$$_EmployeeCopyWithImpl(
-      _$_Employee _value, $Res Function(_$_Employee) _then)
-      : super(_value, _then);
+  __$$_EmployeeCopyWithImpl(_$_Employee _value, $Res Function(_$_Employee) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -264,8 +256,7 @@ class _$_Employee extends _Employee {
       @JsonKey(name: 'company') @HiveField(9) this.company})
       : super._();
 
-  factory _$_Employee.fromJson(Map<String, dynamic> json) =>
-      _$$_EmployeeFromJson(json);
+  factory _$_Employee.fromJson(Map<String, dynamic> json) => _$$_EmployeeFromJson(json);
 
   @override
   @JsonKey(name: 'id')
@@ -316,11 +307,9 @@ class _$_Employee extends _Employee {
             other is _$_Employee &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
+            (identical(other.username, username) || other.username == username) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.profileImage, profileImage) ||
-                other.profileImage == profileImage) &&
+            (identical(other.profileImage, profileImage) || other.profileImage == profileImage) &&
             (identical(other.address, address) || other.address == address) &&
             const DeepCollectionEquality().equals(other.phone, phone) &&
             (identical(other.website, website) || other.website == website) &&
@@ -329,23 +318,13 @@ class _$_Employee extends _Employee {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      name,
-      username,
-      email,
-      profileImage,
-      address,
-      const DeepCollectionEquality().hash(phone),
-      website,
-      company);
+  int get hashCode => Object.hash(runtimeType, id, name, username, email, profileImage, address,
+      const DeepCollectionEquality().hash(phone), website, company);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EmployeeCopyWith<_$_Employee> get copyWith =>
-      __$$_EmployeeCopyWithImpl<_$_Employee>(this, _$identity);
+  _$$_EmployeeCopyWith<_$_Employee> get copyWith => __$$_EmployeeCopyWithImpl<_$_Employee>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -357,33 +336,15 @@ class _$_Employee extends _Employee {
 
 abstract class _Employee extends Employee {
   factory _Employee(
-      {@JsonKey(name: 'id')
-      @HiveField(0)
-          final int? id,
-      @JsonKey(name: 'name')
-      @HiveField(2)
-          final String? name,
-      @JsonKey(name: 'username')
-      @HiveField(3)
-          final String? username,
-      @JsonKey(name: 'email')
-      @HiveField(4)
-          final String? email,
-      @JsonKey(name: 'profile_image')
-      @HiveField(5)
-          final String? profileImage,
-      @JsonKey(name: 'address')
-      @HiveField(6)
-          final Address? address,
-      @JsonKey(name: 'phone')
-      @HiveField(7)
-          final dynamic phone,
-      @JsonKey(name: 'website')
-      @HiveField(8)
-          final String? website,
-      @JsonKey(name: 'company')
-      @HiveField(9)
-          final Company? company}) = _$_Employee;
+      {@JsonKey(name: 'id') @HiveField(0) final int? id,
+      @JsonKey(name: 'name') @HiveField(2) final String? name,
+      @JsonKey(name: 'username') @HiveField(3) final String? username,
+      @JsonKey(name: 'email') @HiveField(4) final String? email,
+      @JsonKey(name: 'profile_image') @HiveField(5) final String? profileImage,
+      @JsonKey(name: 'address') @HiveField(6) final Address? address,
+      @JsonKey(name: 'phone') @HiveField(7) final dynamic phone,
+      @JsonKey(name: 'website') @HiveField(8) final String? website,
+      @JsonKey(name: 'company') @HiveField(9) final Company? company}) = _$_Employee;
   _Employee._() : super._();
 
   factory _Employee.fromJson(Map<String, dynamic> json) = _$_Employee.fromJson;
@@ -426,8 +387,7 @@ abstract class _Employee extends Employee {
   Company? get company;
   @override
   @JsonKey(ignore: true)
-  _$$_EmployeeCopyWith<_$_Employee> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_EmployeeCopyWith<_$_Employee> get copyWith => throw _privateConstructorUsedError;
 }
 
 Address _$AddressFromJson(Map<String, dynamic> json) {
@@ -459,8 +419,7 @@ mixin _$Address {
 
 /// @nodoc
 abstract class $AddressCopyWith<$Res> {
-  factory $AddressCopyWith(Address value, $Res Function(Address) then) =
-      _$AddressCopyWithImpl<$Res, Address>;
+  factory $AddressCopyWith(Address value, $Res Function(Address) then) = _$AddressCopyWithImpl<$Res, Address>;
   @useResult
   $Res call(
       {@JsonKey(name: 'street') @HiveField(0) String? street,
@@ -473,8 +432,7 @@ abstract class $AddressCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AddressCopyWithImpl<$Res, $Val extends Address>
-    implements $AddressCopyWith<$Res> {
+class _$AddressCopyWithImpl<$Res, $Val extends Address> implements $AddressCopyWith<$Res> {
   _$AddressCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -530,9 +488,7 @@ class _$AddressCopyWithImpl<$Res, $Val extends Address>
 
 /// @nodoc
 abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
-  factory _$$_AddressCopyWith(
-          _$_Address value, $Res Function(_$_Address) then) =
-      __$$_AddressCopyWithImpl<$Res>;
+  factory _$$_AddressCopyWith(_$_Address value, $Res Function(_$_Address) then) = __$$_AddressCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -547,11 +503,9 @@ abstract class _$$_AddressCopyWith<$Res> implements $AddressCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AddressCopyWithImpl<$Res>
-    extends _$AddressCopyWithImpl<$Res, _$_Address>
+class __$$_AddressCopyWithImpl<$Res> extends _$AddressCopyWithImpl<$Res, _$_Address>
     implements _$$_AddressCopyWith<$Res> {
-  __$$_AddressCopyWithImpl(_$_Address _value, $Res Function(_$_Address) _then)
-      : super(_value, _then);
+  __$$_AddressCopyWithImpl(_$_Address _value, $Res Function(_$_Address) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -599,8 +553,7 @@ class _$_Address extends _Address {
       @JsonKey(name: 'geo') @HiveField(4) this.geo})
       : super._();
 
-  factory _$_Address.fromJson(Map<String, dynamic> json) =>
-      _$$_AddressFromJson(json);
+  factory _$_Address.fromJson(Map<String, dynamic> json) => _$$_AddressFromJson(json);
 
   @override
   @JsonKey(name: 'street')
@@ -642,14 +595,12 @@ class _$_Address extends _Address {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, street, suite, city, zipcode, geo);
+  int get hashCode => Object.hash(runtimeType, street, suite, city, zipcode, geo);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddressCopyWith<_$_Address> get copyWith =>
-      __$$_AddressCopyWithImpl<_$_Address>(this, _$identity);
+  _$$_AddressCopyWith<_$_Address> get copyWith => __$$_AddressCopyWithImpl<_$_Address>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -692,8 +643,7 @@ abstract class _Address extends Address {
   Geo? get geo;
   @override
   @JsonKey(ignore: true)
-  _$$_AddressCopyWith<_$_Address> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_AddressCopyWith<_$_Address> get copyWith => throw _privateConstructorUsedError;
 }
 
 Company _$CompanyFromJson(Map<String, dynamic> json) {
@@ -719,8 +669,7 @@ mixin _$Company {
 
 /// @nodoc
 abstract class $CompanyCopyWith<$Res> {
-  factory $CompanyCopyWith(Company value, $Res Function(Company) then) =
-      _$CompanyCopyWithImpl<$Res, Company>;
+  factory $CompanyCopyWith(Company value, $Res Function(Company) then) = _$CompanyCopyWithImpl<$Res, Company>;
   @useResult
   $Res call(
       {@JsonKey(name: 'name') @HiveField(0) String? name,
@@ -729,8 +678,7 @@ abstract class $CompanyCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$CompanyCopyWithImpl<$Res, $Val extends Company>
-    implements $CompanyCopyWith<$Res> {
+class _$CompanyCopyWithImpl<$Res, $Val extends Company> implements $CompanyCopyWith<$Res> {
   _$CompanyCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -764,9 +712,7 @@ class _$CompanyCopyWithImpl<$Res, $Val extends Company>
 
 /// @nodoc
 abstract class _$$_CompanyCopyWith<$Res> implements $CompanyCopyWith<$Res> {
-  factory _$$_CompanyCopyWith(
-          _$_Company value, $Res Function(_$_Company) then) =
-      __$$_CompanyCopyWithImpl<$Res>;
+  factory _$$_CompanyCopyWith(_$_Company value, $Res Function(_$_Company) then) = __$$_CompanyCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -776,11 +722,9 @@ abstract class _$$_CompanyCopyWith<$Res> implements $CompanyCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_CompanyCopyWithImpl<$Res>
-    extends _$CompanyCopyWithImpl<$Res, _$_Company>
+class __$$_CompanyCopyWithImpl<$Res> extends _$CompanyCopyWithImpl<$Res, _$_Company>
     implements _$$_CompanyCopyWith<$Res> {
-  __$$_CompanyCopyWithImpl(_$_Company _value, $Res Function(_$_Company) _then)
-      : super(_value, _then);
+  __$$_CompanyCopyWithImpl(_$_Company _value, $Res Function(_$_Company) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -816,8 +760,7 @@ class _$_Company extends _Company {
       @JsonKey(name: 'bs') @HiveField(2) this.bs})
       : super._();
 
-  factory _$_Company.fromJson(Map<String, dynamic> json) =>
-      _$$_CompanyFromJson(json);
+  factory _$_Company.fromJson(Map<String, dynamic> json) => _$$_CompanyFromJson(json);
 
   @override
   @JsonKey(name: 'name')
@@ -843,8 +786,7 @@ class _$_Company extends _Company {
         (other.runtimeType == runtimeType &&
             other is _$_Company &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.catchPhrase, catchPhrase) ||
-                other.catchPhrase == catchPhrase) &&
+            (identical(other.catchPhrase, catchPhrase) || other.catchPhrase == catchPhrase) &&
             (identical(other.bs, bs) || other.bs == bs));
   }
 
@@ -855,8 +797,7 @@ class _$_Company extends _Company {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CompanyCopyWith<_$_Company> get copyWith =>
-      __$$_CompanyCopyWithImpl<_$_Company>(this, _$identity);
+  _$$_CompanyCopyWith<_$_Company> get copyWith => __$$_CompanyCopyWithImpl<_$_Company>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -889,8 +830,7 @@ abstract class _Company extends Company {
   String? get bs;
   @override
   @JsonKey(ignore: true)
-  _$$_CompanyCopyWith<_$_Company> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_CompanyCopyWith<_$_Company> get copyWith => throw _privateConstructorUsedError;
 }
 
 Geo _$GeoFromJson(Map<String, dynamic> json) {
@@ -913,12 +853,9 @@ mixin _$Geo {
 
 /// @nodoc
 abstract class $GeoCopyWith<$Res> {
-  factory $GeoCopyWith(Geo value, $Res Function(Geo) then) =
-      _$GeoCopyWithImpl<$Res, Geo>;
+  factory $GeoCopyWith(Geo value, $Res Function(Geo) then) = _$GeoCopyWithImpl<$Res, Geo>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'lat') @HiveField(0) String? lat,
-      @JsonKey(name: 'lng') @HiveField(1) String? lng});
+  $Res call({@JsonKey(name: 'lat') @HiveField(0) String? lat, @JsonKey(name: 'lng') @HiveField(1) String? lng});
 }
 
 /// @nodoc
@@ -951,20 +888,15 @@ class _$GeoCopyWithImpl<$Res, $Val extends Geo> implements $GeoCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$$_GeoCopyWith<$Res> implements $GeoCopyWith<$Res> {
-  factory _$$_GeoCopyWith(_$_Geo value, $Res Function(_$_Geo) then) =
-      __$$_GeoCopyWithImpl<$Res>;
+  factory _$$_GeoCopyWith(_$_Geo value, $Res Function(_$_Geo) then) = __$$_GeoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'lat') @HiveField(0) String? lat,
-      @JsonKey(name: 'lng') @HiveField(1) String? lng});
+  $Res call({@JsonKey(name: 'lat') @HiveField(0) String? lat, @JsonKey(name: 'lng') @HiveField(1) String? lng});
 }
 
 /// @nodoc
-class __$$_GeoCopyWithImpl<$Res> extends _$GeoCopyWithImpl<$Res, _$_Geo>
-    implements _$$_GeoCopyWith<$Res> {
-  __$$_GeoCopyWithImpl(_$_Geo _value, $Res Function(_$_Geo) _then)
-      : super(_value, _then);
+class __$$_GeoCopyWithImpl<$Res> extends _$GeoCopyWithImpl<$Res, _$_Geo> implements _$$_GeoCopyWith<$Res> {
+  __$$_GeoCopyWithImpl(_$_Geo _value, $Res Function(_$_Geo) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -989,10 +921,7 @@ class __$$_GeoCopyWithImpl<$Res> extends _$GeoCopyWithImpl<$Res, _$_Geo>
 @JsonSerializable()
 @HiveType(typeId: 3)
 class _$_Geo extends _Geo {
-  _$_Geo(
-      {@JsonKey(name: 'lat') @HiveField(0) this.lat,
-      @JsonKey(name: 'lng') @HiveField(1) this.lng})
-      : super._();
+  _$_Geo({@JsonKey(name: 'lat') @HiveField(0) this.lat, @JsonKey(name: 'lng') @HiveField(1) this.lng}) : super._();
 
   factory _$_Geo.fromJson(Map<String, dynamic> json) => _$$_GeoFromJson(json);
 
@@ -1026,8 +955,7 @@ class _$_Geo extends _Geo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GeoCopyWith<_$_Geo> get copyWith =>
-      __$$_GeoCopyWithImpl<_$_Geo>(this, _$identity);
+  _$$_GeoCopyWith<_$_Geo> get copyWith => __$$_GeoCopyWithImpl<_$_Geo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

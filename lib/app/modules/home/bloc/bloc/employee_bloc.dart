@@ -16,8 +16,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   EmployeeBloc(this.employeeRepo) : super(EmployeeState.initial()) {
     on<_GetEmployeeList>((event, emit) async {
       emit(state.copyWith(isLoading: true, employeeApiFailureOption: none()));
-      final Either<ApiFailure, List<Employee>> employeeListOptions =
-          await employeeRepo.getEmployeeList();
+      final Either<ApiFailure, List<Employee>> employeeListOptions = await employeeRepo.getEmployeeList();
       emit(
         employeeListOptions.fold(
           (failure) => state.copyWith(
@@ -38,8 +37,7 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
     });
 
     on<_SearchEmployee>((event, emit) {
-      final List<Employee> employeeList =
-          employeeRepo.searchEmployee(query: event.query);
+      final List<Employee> employeeList = employeeRepo.searchEmployee(query: event.query);
       emit(state.copyWith(employeeList: employeeList, isLoading: false));
     });
   }

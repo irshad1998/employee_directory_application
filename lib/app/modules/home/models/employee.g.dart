@@ -58,10 +58,7 @@ class EmployeeAdapter extends TypeAdapter<_$_Employee> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is EmployeeAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is EmployeeAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 class AddressAdapter extends TypeAdapter<_$_Address> {
@@ -104,10 +101,7 @@ class AddressAdapter extends TypeAdapter<_$_Address> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is AddressAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is AddressAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 class CompanyAdapter extends TypeAdapter<_$_Company> {
@@ -144,10 +138,7 @@ class CompanyAdapter extends TypeAdapter<_$_Company> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CompanyAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is CompanyAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 class GeoAdapter extends TypeAdapter<_$_Geo> {
@@ -181,10 +172,7 @@ class GeoAdapter extends TypeAdapter<_$_Geo> {
 
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is GeoAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+      identical(this, other) || other is GeoAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }
 
 // **************************************************************************
@@ -197,18 +185,13 @@ _$_Employee _$$_EmployeeFromJson(Map<String, dynamic> json) => _$_Employee(
       username: json['username'] as String?,
       email: json['email'] as String?,
       profileImage: json['profile_image'] as String?,
-      address: json['address'] == null
-          ? null
-          : Address.fromJson(json['address'] as Map<String, dynamic>),
+      address: json['address'] == null ? null : Address.fromJson(json['address'] as Map<String, dynamic>),
       phone: json['phone'],
       website: json['website'] as String?,
-      company: json['company'] == null
-          ? null
-          : Company.fromJson(json['company'] as Map<String, dynamic>),
+      company: json['company'] == null ? null : Company.fromJson(json['company'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_EmployeeToJson(_$_Employee instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_EmployeeToJson(_$_Employee instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'username': instance.username,
@@ -225,13 +208,10 @@ _$_Address _$$_AddressFromJson(Map<String, dynamic> json) => _$_Address(
       suite: json['suite'] as String?,
       city: json['city'] as String?,
       zipcode: json['zipcode'] as String?,
-      geo: json['geo'] == null
-          ? null
-          : Geo.fromJson(json['geo'] as Map<String, dynamic>),
+      geo: json['geo'] == null ? null : Geo.fromJson(json['geo'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_AddressToJson(_$_Address instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_AddressToJson(_$_Address instance) => <String, dynamic>{
       'street': instance.street,
       'suite': instance.suite,
       'city': instance.city,
@@ -245,8 +225,7 @@ _$_Company _$$_CompanyFromJson(Map<String, dynamic> json) => _$_Company(
       bs: json['bs'] as String?,
     );
 
-Map<String, dynamic> _$$_CompanyToJson(_$_Company instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_CompanyToJson(_$_Company instance) => <String, dynamic>{
       'name': instance.name,
       'catchPhrase': instance.catchPhrase,
       'bs': instance.bs,

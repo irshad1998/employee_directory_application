@@ -58,14 +58,12 @@ mixin _$EmployeeEvent {
 
 /// @nodoc
 abstract class $EmployeeEventCopyWith<$Res> {
-  factory $EmployeeEventCopyWith(
-          EmployeeEvent value, $Res Function(EmployeeEvent) then) =
+  factory $EmployeeEventCopyWith(EmployeeEvent value, $Res Function(EmployeeEvent) then) =
       _$EmployeeEventCopyWithImpl<$Res, EmployeeEvent>;
 }
 
 /// @nodoc
-class _$EmployeeEventCopyWithImpl<$Res, $Val extends EmployeeEvent>
-    implements $EmployeeEventCopyWith<$Res> {
+class _$EmployeeEventCopyWithImpl<$Res, $Val extends EmployeeEvent> implements $EmployeeEventCopyWith<$Res> {
   _$EmployeeEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -76,17 +74,14 @@ class _$EmployeeEventCopyWithImpl<$Res, $Val extends EmployeeEvent>
 
 /// @nodoc
 abstract class _$$_GetEmployeeListCopyWith<$Res> {
-  factory _$$_GetEmployeeListCopyWith(
-          _$_GetEmployeeList value, $Res Function(_$_GetEmployeeList) then) =
+  factory _$$_GetEmployeeListCopyWith(_$_GetEmployeeList value, $Res Function(_$_GetEmployeeList) then) =
       __$$_GetEmployeeListCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_GetEmployeeListCopyWithImpl<$Res>
-    extends _$EmployeeEventCopyWithImpl<$Res, _$_GetEmployeeList>
+class __$$_GetEmployeeListCopyWithImpl<$Res> extends _$EmployeeEventCopyWithImpl<$Res, _$_GetEmployeeList>
     implements _$$_GetEmployeeListCopyWith<$Res> {
-  __$$_GetEmployeeListCopyWithImpl(
-      _$_GetEmployeeList _value, $Res Function(_$_GetEmployeeList) _then)
+  __$$_GetEmployeeListCopyWithImpl(_$_GetEmployeeList _value, $Res Function(_$_GetEmployeeList) _then)
       : super(_value, _then);
 }
 
@@ -102,8 +97,7 @@ class _$_GetEmployeeList implements _GetEmployeeList {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GetEmployeeList);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$_GetEmployeeList);
   }
 
   @override
@@ -178,19 +172,16 @@ abstract class _GetEmployeeList implements EmployeeEvent {
 
 /// @nodoc
 abstract class _$$_SearchEmployeeCopyWith<$Res> {
-  factory _$$_SearchEmployeeCopyWith(
-          _$_SearchEmployee value, $Res Function(_$_SearchEmployee) then) =
+  factory _$$_SearchEmployeeCopyWith(_$_SearchEmployee value, $Res Function(_$_SearchEmployee) then) =
       __$$_SearchEmployeeCopyWithImpl<$Res>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class __$$_SearchEmployeeCopyWithImpl<$Res>
-    extends _$EmployeeEventCopyWithImpl<$Res, _$_SearchEmployee>
+class __$$_SearchEmployeeCopyWithImpl<$Res> extends _$EmployeeEventCopyWithImpl<$Res, _$_SearchEmployee>
     implements _$$_SearchEmployeeCopyWith<$Res> {
-  __$$_SearchEmployeeCopyWithImpl(
-      _$_SearchEmployee _value, $Res Function(_$_SearchEmployee) _then)
+  __$$_SearchEmployeeCopyWithImpl(_$_SearchEmployee _value, $Res Function(_$_SearchEmployee) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -301,31 +292,26 @@ class _$_SearchEmployee implements _SearchEmployee {
 }
 
 abstract class _SearchEmployee implements EmployeeEvent {
-  const factory _SearchEmployee({required final String query}) =
-      _$_SearchEmployee;
+  const factory _SearchEmployee({required final String query}) = _$_SearchEmployee;
 
   String get query;
   @JsonKey(ignore: true)
-  _$$_SearchEmployeeCopyWith<_$_SearchEmployee> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_SearchEmployeeCopyWith<_$_SearchEmployee> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$EmployeeState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<Employee> get employeeList => throw _privateConstructorUsedError;
-  Option<Either<ApiFailure, List<Employee>>> get employeeApiFailureOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<ApiFailure, List<Employee>>> get employeeApiFailureOption => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $EmployeeStateCopyWith<EmployeeState> get copyWith =>
-      throw _privateConstructorUsedError;
+  $EmployeeStateCopyWith<EmployeeState> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $EmployeeStateCopyWith<$Res> {
-  factory $EmployeeStateCopyWith(
-          EmployeeState value, $Res Function(EmployeeState) then) =
+  factory $EmployeeStateCopyWith(EmployeeState value, $Res Function(EmployeeState) then) =
       _$EmployeeStateCopyWithImpl<$Res, EmployeeState>;
   @useResult
   $Res call(
@@ -335,8 +321,7 @@ abstract class $EmployeeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmployeeStateCopyWithImpl<$Res, $Val extends EmployeeState>
-    implements $EmployeeStateCopyWith<$Res> {
+class _$EmployeeStateCopyWithImpl<$Res, $Val extends EmployeeState> implements $EmployeeStateCopyWith<$Res> {
   _$EmployeeStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -369,11 +354,8 @@ class _$EmployeeStateCopyWithImpl<$Res, $Val extends EmployeeState>
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
-    implements $EmployeeStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$_InitialCopyWith<$Res> implements $EmployeeStateCopyWith<$Res> {
+  factory _$$_InitialCopyWith(_$_Initial value, $Res Function(_$_Initial) then) = __$$_InitialCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -383,11 +365,9 @@ abstract class _$$_InitialCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$EmployeeStateCopyWithImpl<$Res, _$_Initial>
+class __$$_InitialCopyWithImpl<$Res> extends _$EmployeeStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, _then);
+  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -417,9 +397,7 @@ class __$$_InitialCopyWithImpl<$Res>
 
 class _$_Initial implements _Initial {
   const _$_Initial(
-      {required this.isLoading,
-      required final List<Employee> employeeList,
-      required this.employeeApiFailureOption})
+      {required this.isLoading, required final List<Employee> employeeList, required this.employeeApiFailureOption})
       : _employeeList = employeeList;
 
   @override
@@ -444,35 +422,27 @@ class _$_Initial implements _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Initial &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading) &&
-            const DeepCollectionEquality()
-                .equals(other._employeeList, _employeeList) &&
-            (identical(
-                    other.employeeApiFailureOption, employeeApiFailureOption) ||
+            (identical(other.isLoading, isLoading) || other.isLoading == isLoading) &&
+            const DeepCollectionEquality().equals(other._employeeList, _employeeList) &&
+            (identical(other.employeeApiFailureOption, employeeApiFailureOption) ||
                 other.employeeApiFailureOption == employeeApiFailureOption));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isLoading,
-      const DeepCollectionEquality().hash(_employeeList),
-      employeeApiFailureOption);
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, const DeepCollectionEquality().hash(_employeeList), employeeApiFailureOption);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$_InitialCopyWith<_$_Initial> get copyWith => __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
 }
 
 abstract class _Initial implements EmployeeState {
   const factory _Initial(
       {required final bool isLoading,
       required final List<Employee> employeeList,
-      required final Option<Either<ApiFailure, List<Employee>>>
-          employeeApiFailureOption}) = _$_Initial;
+      required final Option<Either<ApiFailure, List<Employee>>> employeeApiFailureOption}) = _$_Initial;
 
   @override
   bool get isLoading;
@@ -482,6 +452,5 @@ abstract class _Initial implements EmployeeState {
   Option<Either<ApiFailure, List<Employee>>> get employeeApiFailureOption;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_InitialCopyWith<_$_Initial> get copyWith => throw _privateConstructorUsedError;
 }

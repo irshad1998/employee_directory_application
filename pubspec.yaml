@@ -35,6 +35,7 @@ dev_dependencies:
   json_serializable: ^6.5.3
   hive_generator: ^1.1.2
   injectable_generator: ^1.5.4
+  lint: ^1.10.0
 
 flutter:
   uses-material-design: true

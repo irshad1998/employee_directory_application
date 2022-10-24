@@ -26,7 +26,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget buildHomeBody(double width, height, BuildContext context) {
+  Widget buildHomeBody(double width, double height, BuildContext context) {
     return SizedBox(
       width: width,
       height: height - kToolbarHeight,
@@ -44,9 +44,7 @@ class HomeView extends StatelessWidget {
                 ),
                 child: TextField(
                   onChanged: (v) {
-                    context
-                        .read<EmployeeBloc>()
-                        .add(EmployeeEvent.searchEmployee(query: v));
+                    context.read<EmployeeBloc>().add(EmployeeEvent.searchEmployee(query: v));
                   },
                   cursorColor: AppColors.appColorPrimary,
                   cursorWidth: 1,
@@ -56,10 +54,8 @@ class HomeView extends StatelessWidget {
                   ),
                   decoration: InputDecoration(
                     hintText: Strings.searchHintText,
-                    hintStyle: const TextStyle(
-                        fontWeight: FontWeight.w300, fontSize: 15),
-                    contentPadding:
-                        const EdgeInsets.only(bottom: 4, left: 6, right: 4),
+                    hintStyle: const TextStyle(fontWeight: FontWeight.w300, fontSize: 15),
+                    contentPadding: const EdgeInsets.only(bottom: 4, left: 6, right: 4),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(
@@ -107,27 +103,20 @@ class HomeView extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(4),
                                 ),
                                 child: SizedBox(
-                                  height: height > 595
-                                      ? height * 0.1
-                                      : height * 0.14,
+                                  height: height > 595 ? height * 0.1 : height * 0.14,
                                   child: Center(
                                     child: ListTile(
-                                      onTap: () => Navigator.pushNamed(
-                                          context, '/employee_details',
-                                          arguments: employee),
+                                      onTap: () =>
+                                          Navigator.pushNamed(context, '/employee_details', arguments: employee),
                                       leading: CircleAvatar(
                                         radius: 25,
-                                        backgroundColor:
-                                            Colors.grey.withOpacity(0.3),
-                                        backgroundImage:
-                                            CachedNetworkImageProvider(
-                                          employee.profileImage ??
-                                              Endpoints.profilePlaceHolderUrl,
+                                        backgroundColor: Colors.grey.withOpacity(0.3),
+                                        backgroundImage: CachedNetworkImageProvider(
+                                          employee.profileImage ?? Endpoints.profilePlaceHolderUrl,
                                         ),
                                       ),
                                       title: Text(employee.name ?? '--'),
-                                      subtitle:
-                                          Text(employee.company?.name ?? '--'),
+                                      subtitle: Text(employee.company?.name ?? '--'),
                                     ),
                                   ),
                                 ),
@@ -136,8 +125,7 @@ class HomeView extends StatelessWidget {
                           },
                           itemCount: state.employeeList.length,
                         )
-                      : state.employeeApiFailureOption ==
-                              ApiFailure.clientSideFailure()
+                      : state.employeeApiFailureOption == ApiFailure.clientSideFailure()
                           ? NoDataWidget(
                               errorText: Strings.somethingWentWrong,
                             )

@@ -12,18 +12,18 @@ class Storage {
 
   static final employeeBox = Hive.box<Employee>(AppConstants.employeeDb);
 
-  void addEmployee(int key, Employee employee) async {
+  Future<void> addEmployee(int key, Employee employee) async {
     await employeeBox.put(key, employee);
   }
 
-  void deleteEmployee(int id) async {
+  Future<void> deleteEmployee(int id) async {
     await employeeBox.delete(id);
   }
 
   Future<List<Employee>> getEmployees() async {
-    List<Employee> _temporaryEmployeeList = [];
-    var data = await employeeBox.values;
-    _temporaryEmployeeList.addAll(data);
-    return _temporaryEmployeeList;
+    final List<Employee> temporaryEmployeeList = [];
+    final data = employeeBox.values;
+    temporaryEmployeeList.addAll(data);
+    return temporaryEmployeeList;
   }
 }

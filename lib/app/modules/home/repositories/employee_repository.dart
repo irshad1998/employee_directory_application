@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:employee_directory_application/app/modules/home/models/employee.dart';
-import 'package:employee_directory_application/app/core/failures/api_failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:employee_directory_application/app/core/failures/api_failure.dart';
+import 'package:employee_directory_application/app/modules/home/models/employee.dart';
 import 'package:employee_directory_application/app/modules/home/repositories/i_employee_repository.dart';
 import 'package:employee_directory_application/app/network/endpoints.dart';
 import 'package:employee_directory_application/app/network/http_client.dart';
@@ -57,12 +57,8 @@ class EmployeeRepository extends IEmployeeRepo {
     if (query != '') {
       searchRes.clear();
       final resultList = employeeDataList
-          .where((element) => ((element.name ?? '')
-                  .toLowerCase()
-                  .startsWith(query.toLowerCase()) ||
-              (element.email ?? '')
-                  .toLowerCase()
-                  .startsWith(query.toLowerCase())))
+          .where((element) => ((element.name ?? '').toLowerCase().startsWith(query.toLowerCase()) ||
+              (element.email ?? '').toLowerCase().startsWith(query.toLowerCase())))
           .toList();
       searchRes.addAll(resultList);
     } else {

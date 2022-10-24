@@ -1,3 +1,5 @@
+// ignore_for_file: require_trailing_commas
+
 import 'package:employee_directory_application/app/data/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +32,7 @@ class NoDataWidget extends StatelessWidget {
                 color: Colors.red.withOpacity(0.3),
                 size: 18,
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Text(
                 errorText,
                 style: TextStyle(
@@ -38,7 +40,7 @@ class NoDataWidget extends StatelessWidget {
                   color: Colors.grey.shade600,
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Icon(
                 Icons.warning,
                 color: Colors.red.withOpacity(0.3),
