@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 part of 'employee_bloc.dart';
 
 @freezed

@@ -20,8 +20,7 @@ abstract class Employee extends HiveObject with _$Employee {
     @JsonKey(name: 'company') @HiveField(9) Company? company,
   }) = _Employee;
 
-  factory Employee.fromJson(Map<String, dynamic> json) =>
-      _$EmployeeFromJson(json);
+  factory Employee.fromJson(Map<String, dynamic> json) => _$EmployeeFromJson(json);
 }
 
 @freezed
@@ -36,8 +35,7 @@ class Address extends HiveObject with _$Address {
     @JsonKey(name: 'geo') @HiveField(4) Geo? geo,
   }) = _Address;
 
-  factory Address.fromJson(Map<String, dynamic> json) =>
-      _$AddressFromJson(json);
+  factory Address.fromJson(Map<String, dynamic> json) => _$AddressFromJson(json);
 }
 
 @freezed
@@ -50,8 +48,7 @@ class Company extends HiveObject with _$Company {
     @JsonKey(name: 'bs') @HiveField(2) String? bs,
   }) = _Company;
 
-  factory Company.fromJson(Map<String, dynamic> json) =>
-      _$CompanyFromJson(json);
+  factory Company.fromJson(Map<String, dynamic> json) => _$CompanyFromJson(json);
 }
 
 @freezed
