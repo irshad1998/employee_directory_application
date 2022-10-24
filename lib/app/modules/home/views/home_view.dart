@@ -86,50 +86,43 @@ class HomeView extends StatelessWidget {
               height: height - (kToolbarHeight + (height * 0.11)),
               child: BlocBuilder<EmployeeBloc, EmployeeState>(
                 builder: (context, state) {
-                  return state.employeeList.isNotEmpty
-                      ? ListView.builder(
-                          shrinkWrap: true,
-                          itemBuilder: (ctx, index) {
-                            var employee = state.employeeList[index];
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: 2,
-                                horizontal: 6,
-                              ),
-                              child: Material(
-                                elevation: 5,
-                                shadowColor: AppColors.employeeListShadowColor,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                child: SizedBox(
-                                  height: height > 595 ? height * 0.1 : height * 0.14,
-                                  child: Center(
-                                    child: ListTile(
-                                      onTap: () =>
-                                          Navigator.pushNamed(context, '/employee_details', arguments: employee),
-                                      leading: CircleAvatar(
-                                        radius: 25,
-                                        backgroundColor: Colors.grey.withOpacity(0.3),
-                                        backgroundImage: CachedNetworkImageProvider(
-                                          employee.profileImage ?? Endpoints.profilePlaceHolderUrl,
-                                        ),
-                                      ),
-                                      title: Text(employee.name ?? '--'),
-                                      subtitle: Text(employee.company?.name ?? '--'),
-                                    ),
+                  return ListView.builder(
+                    shrinkWrap: true,
+                    itemBuilder: (ctx, index) {
+                      var employee = state.employeeList[index];
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 2,
+                          horizontal: 6,
+                        ),
+                        child: Material(
+                          elevation: 5,
+                          shadowColor: AppColors.employeeListShadowColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(4),
+                          ),
+                          child: SizedBox(
+                            height: height > 595 ? height * 0.1 : height * 0.14,
+                            child: Center(
+                              child: ListTile(
+                                onTap: () => Navigator.pushNamed(context, '/employee_details', arguments: employee),
+                                leading: CircleAvatar(
+                                  radius: 25,
+                                  backgroundColor: Colors.grey.withOpacity(0.3),
+                                  backgroundImage: CachedNetworkImageProvider(
+                                    employee.profileImage ?? Endpoints.profilePlaceHolderUrl,
                                   ),
                                 ),
+                                title: Text(employee.name ?? '--'),
+                                subtitle: Text(employee.company?.name ?? '--'),
                               ),
-                            );
-                          },
-                          itemCount: state.employeeList.length,
-                        )
-                      : state.employeeApiFailureOption == ApiFailure.clientSideFailure()
-                          ? NoDataWidget(
-                              errorText: Strings.somethingWentWrong,
-                            )
-                          : NoDataWidget(errorText: Strings.serverError);
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: state.employeeList.length,
+                  );
                 },
               ),
             )
